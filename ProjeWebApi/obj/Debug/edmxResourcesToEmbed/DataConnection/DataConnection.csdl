@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_DesafioPartnerGroupModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="MarcaId" />
+    </Key>
+    <Property Name="Nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarcaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Patrimonio" Relationship="Self.FK__Patrimoni__Marca__239E4DCF" FromRole="Marca" ToRole="Patrimonio" />
+  </EntityType>
+  <EntityType Name="Patrimonio">
+    <Key>
+      <PropertyRef Name="N_Tombo" />
+    </Key>
+    <Property Name="Nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarcaId" Type="Int32" Nullable="false" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="N_Tombo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Marca" Relationship="Self.FK__Patrimoni__Marca__239E4DCF" FromRole="Patrimonio" ToRole="Marca" />
+  </EntityType>
+  <Association Name="FK__Patrimoni__Marca__239E4DCF">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+    <End Role="Patrimonio" Type="Self.Patrimonio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="MarcaId" />
+      </Principal>
+      <Dependent Role="Patrimonio">
+        <PropertyRef Name="MarcaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataConnetion" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Marca" EntityType="Self.Marca" />
+    <EntitySet Name="Patrimonio" EntityType="Self.Patrimonio" />
+    <AssociationSet Name="FK__Patrimoni__Marca__239E4DCF" Association="Self.FK__Patrimoni__Marca__239E4DCF">
+      <End Role="Marca" EntitySet="Marca" />
+      <End Role="Patrimonio" EntitySet="Patrimonio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

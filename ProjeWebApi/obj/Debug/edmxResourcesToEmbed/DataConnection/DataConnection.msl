@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_DesafioPartnerGroupModelStoreContainer" CdmEntityContainer="DataConnetion">
+    <EntitySetMapping Name="Marca">
+      <EntityTypeMapping TypeName="db_DesafioPartnerGroupModel.Marca">
+        <MappingFragment StoreEntitySet="Marca">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="MarcaId" ColumnName="MarcaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patrimonio">
+      <EntityTypeMapping TypeName="db_DesafioPartnerGroupModel.Patrimonio">
+        <MappingFragment StoreEntitySet="Patrimonio">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="MarcaId" ColumnName="MarcaId" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="N_Tombo" ColumnName="N_Tombo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

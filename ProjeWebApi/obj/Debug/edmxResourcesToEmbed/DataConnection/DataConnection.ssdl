@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_DesafioPartnerGroupModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="MarcaId" />
+    </Key>
+    <Property Name="Nome" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MarcaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patrimonio">
+    <Key>
+      <PropertyRef Name="N_Tombo" />
+    </Key>
+    <Property Name="Nome" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MarcaId" Type="int" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" />
+    <Property Name="N_Tombo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Patrimoni__Marca__239E4DCF">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+    <End Role="Patrimonio" Type="Self.Patrimonio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="MarcaId" />
+      </Principal>
+      <Dependent Role="Patrimonio">
+        <PropertyRef Name="MarcaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_DesafioPartnerGroupModelStoreContainer">
+    <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patrimonio" EntityType="Self.Patrimonio" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Patrimoni__Marca__239E4DCF" Association="Self.FK__Patrimoni__Marca__239E4DCF">
+      <End Role="Marca" EntitySet="Marca" />
+      <End Role="Patrimonio" EntitySet="Patrimonio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
