@@ -1,4 +1,4 @@
-Desafio. 
+﻿Desafio. 
 
 - criei um projeto ASP.NET Web Api de nome (ProjetoWebApi), usei ADO.NET Enty  Data Model de nome (DataConnection) na pasta DataConnection para conexão com banco de daods, adicionei dois Models para {get;set;} (ClasseMarca, ClassePatrimonio) na pasta Models, e usei nas classes o comando "[Required(ErrorMessage)]" nos campos obrigatórios com mensagem de erro "campo obrigatório" para tratamento de erros em casos de não serem preenchidos. 
 
@@ -11,4 +11,4 @@ Desafio.
 - usei o try pensando em caso de tratamento de erros, embora não implementados os metodos que retoram erros, 
  como desenvolverdor é ideal pensar nos eventuais erros que o usuário pode encontara na utilização dos sistema, e informar sobre os erros encontrados é importante em normais de bom programador. 
  
-- Na pasta db_Script contem os scripts do banco de dados 
+- Na pasta db_Script contem os scripts do banco de dados.
